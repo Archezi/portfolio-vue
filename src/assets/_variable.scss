@@ -1,0 +1,31 @@
+
+$color-primary-dark: #6D737A;
+$color-primary-light: #D5D3DB;
+$color-dark: #161C25;
+
+$color-secondary: #5C25E6;
+$background-main: #161C25;
+$background-primary: #101211;
+$background-secondary: #191919;
+$background-skill: rgba(52,58,65,0.75);
+
+$border-primary: #A2A2A2;
+$border-secondary:#212327;
+
+$font-primary: 'Roboto', sans-serif;
+$font-secondary: 'Roboto Mono', monospace;
+
+$heading-primary: 3.6rem;
+$heading-secondary: 2.4rem;
+
+$text-extra: 2.1rem;
+$text-primary: 1.6rem;
+$text-small: 1.4rem;
+
+
+// Layout
+
+$headerHeight: 8rem;
+$containerHeight: calc(100vh - (2* #{$headerHeight}))
+
+
