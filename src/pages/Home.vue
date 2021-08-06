@@ -2,7 +2,8 @@
   <div class="intro-container">
     <h2>Hi, I am Lukasz Kaczmarek</h2>
     <h3>Frontend developer base in Dublin</h3>
-    <base-button class="link" link mode="call-to-action" to="/work">Learn more</base-button>
+    <base-button class="link" link mode="call-to-action" to="/work">My work > </base-button>
+    
   </div>
 </template>
 
@@ -28,7 +29,6 @@ h3 {
   line-height: 1.6;
 }
 .link {
-    padding: 1rem 0 0 0;
-    
+    margin: 5rem 0 0 0;
 }
 </style>

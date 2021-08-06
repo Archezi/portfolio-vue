@@ -1,65 +1,75 @@
-html, * {
-    // This defines what 1rem is
-    font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+html,
+* {
+  // This defines what 1rem is
+  font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
 
-    @include respond(tab-land) { // width < 1200?
-        font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
-    }
+  @include respond(tab-land) {
+    // width < 1200?
+    font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+  }
 
-    @include respond(tab-port) { // width < 900?
-        font-size: 50%; //1 rem = 8px, 8/16 = 50%
-    }
-    
-    @include respond(big-desktop) {
-        font-size: 75%; //1rem = 12, 12/16
-    }
-    box-sizing: border-box;
+  @include respond(tab-port) {
+    // width < 900?
+    font-size: 50%; //1 rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem = 12, 12/16
+  }
+  box-sizing: border-box;
 }
 
 *,
 *::after,
 *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 html {
-    // This defines what 1rem is
-    font-size: 62.5%;
-    overflow-y: scroll;
-    
-    // margin-left: calc(100vw - 100%);
-    // margin-right: 0;
-   
+  // This defines what 1rem is
+  font-size: 62.5%;
+  overflow-y: scroll;
+
+  // margin-left: calc(100vw - 100%);
+  // margin-right: 0;
 }
 
 body {
-    box-sizing: border-box;
-    background: #fff;
+  box-sizing: border-box;
+  background: #fff;
 }
 
 #app {
-    background-color: #161C25;
-    color: #DAEAF2;
-    
+  background-color: #161c25;
+  color: #daeaf2;
 }
 
 a {
-    text-decoration: none;
-    font: inherit;
-    // border: 1px solid $background-light;
-    color: $color-primary-dark;
-    
-    cursor: pointer;
-    display: inline-block;
-    transition: all 0.3s ease-out;
-  }
-  a:hover {
-      color: $color-primary-light;
-  }
+  text-decoration: none;
+  font: inherit;
+  color: $color-primary-dark;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.3s ease-out;
+}
+a:hover {
+  color: $color-primary-light;
+}
 p {
-    font-family: $font-primary;
-    font-size: $text-primary;
-    color: $color-primary-dark;
+  font-family: $font-primary;
+  font-size: $text-primary;
+  color: $color-primary-dark;
+}
+.mobile_only {
+  display: none;
+  @include respond(phone) {
+    display: block;
+  }
+}
+.hide_mobile {
+  @include respond(phone) {
+    display: none;
+  }
 }

@@ -8,19 +8,37 @@
         </transition>
       </router-view>
     </div>
+    <mobile-bottom-nav v-if="mobileView" :key="mobileBottomNav"></mobile-bottom-nav>
   </div>
 </template>
 
 <script>
+import MobileBottomNav from './components/layout/header/MobileBottomNav.vue';
 import TheHeader from './components/layout/TheHeader.vue';
 export default {
   components: {
-    TheHeader
+    TheHeader,
+    MobileBottomNav
+  },
+  data() {
+    return {
+      mobileView: false,
+    }
+  },
+  methods: {
+    handleView() {
+      this.mobileView = window.innerWidth <= 700;
+    }
+  },
+  created() {
+    this.handleView();
+    window.addEventListener('resize', this.handleView);
   }
 };
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.google.com/share?selection.family=Roboto%20Mono:wght@300;400;700');
 
@@ -41,13 +59,11 @@ body {
   min-height: $containerHeight;
   // height: 100vh;
   max-width: 100vw;
-  max-width: 100vw;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  padding-top: $headerHeight;
+  padding-bottom: $headerHeight;
   @include respond(phone) {
-   
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
   }
 }
 .container {
@@ -55,10 +71,12 @@ body {
   width: 100rem;
   height: 100%;
   min-height: $containerHeight;
-  padding: 8rem 0 0 0;
+  padding: $headerHeight 0 0 0;
   margin: 0 auto;
   @include respond(phone) {
     width: 100%;
+    max-width: 100vw;
+    padding: 0 2rem;
   }
 }
 .route-enter-from {

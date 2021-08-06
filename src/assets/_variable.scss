@@ -21,11 +21,12 @@ $heading-secondary: 2.4rem;
 $text-extra: 2.1rem;
 $text-primary: 1.6rem;
 $text-small: 1.4rem;
+$text-extra-small: 1.2rem;
 
 
 // Layout
 
-$headerHeight: 8rem;
+$headerHeight: 6rem;
 $containerHeight: calc(100vh - (2* #{$headerHeight}))
 
 

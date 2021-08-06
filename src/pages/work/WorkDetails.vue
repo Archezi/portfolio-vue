@@ -78,11 +78,9 @@ export default {
   },
 
   created() {
-    console.log(this.slectedWork);
     this.slectedWork = this.$store.getters['works/works'].find(
       work => work.id === this.id
     );
-    console.log(this.slectedWork);
   }
 };
 </script>
@@ -97,10 +95,25 @@ export default {
   box-sizing: border-box;
   background-color: $background-secondary;
   border: 1px solid $border-primary;
+  
+  @include respond(phone) {
+    width: 100vw;
+    padding: 0 2rem;
+    border: none;
+    position: absolute;
+    left: 0;
+    top: $headerHeight;
+    transform: translate(0, 0);
+    padding-bottom: $headerHeight;
+  }
 }
 .dialog-wrapper {
+
   display: grid;
   grid-template-columns: 1fr 1fr;
+  @include respond(phone) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .project-presentation-left {
@@ -114,7 +127,9 @@ export default {
   border-left: 1px solid $border-primary;
   font-family: $font-primary;
   color: $color-primary-light;
-
+  @include respond(phone) {
+    border: none;
+  }
   h1,
   h3,
   ul.skill-list,

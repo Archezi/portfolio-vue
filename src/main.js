@@ -7,6 +7,7 @@ import App from './App.vue';
 import TheHeader from './components/layout/TheHeader.vue';
 import BaseButton from './components/ui/BaseButton.vue';
 
+
 const app = createApp(App)
 
 app.use(router);

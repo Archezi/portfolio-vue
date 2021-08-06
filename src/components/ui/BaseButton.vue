@@ -49,17 +49,16 @@ button:active {
   color: $color-primary-light;
 }
 
-.flat {
-  background-color: transparent;
-  color: #fff;
-  border: none;
-}
 .call-to-action {
   background-color: transparent;
   color: $color-secondary;
   border: none;
   font-family: $font-secondary;
-  font-size: $text-primary;
+  font-size: $text-extra;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  
 
 }
 .outline {

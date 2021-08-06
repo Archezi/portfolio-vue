@@ -61,6 +61,11 @@
         <h2>}</h2>
       </div>
     </div>
+    <div class="about_link">
+      <base-button class="link" link mode="call-to-action" to="/contact"
+        >Write to me if you like what you see ></base-button
+      >
+    </div>
   </div>
 </template>
 
@@ -68,6 +73,10 @@
 .about-container {
   position: absolute;
   bottom: 0;
+  @include respond(phone) {
+    position: relative;
+    max-width: 100%;
+  }
 }
 .about-wrapper {
   border-left: 1px solid $border-primary;
@@ -75,6 +84,8 @@
 }
 .about-utilities {
   margin-bottom: 2rem;
+  max-width: 100%;
+  display: flex;
 }
 h2 {
   font-size: $heading-primary;
@@ -87,8 +98,10 @@ ul {
   padding: 0;
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
   li {
     margin-right: 2rem;
+    padding-top: 2rem;
   }
 }
 ul li img {
@@ -145,6 +158,10 @@ h3 {
   font-family: $font-secondary;
   font-size: $text-primary;
   margin-bottom: 4rem;
+  @include respond(phone) {
+    grid-template-columns: auto;
+    grid-gap: 2rem
+  }
   p {
     line-height: 1.6;
   }
