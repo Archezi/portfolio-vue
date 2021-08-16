@@ -166,4 +166,8 @@ h3 {
     line-height: 1.6;
   }
 }
+.about_link {
+  
+  padding-bottom: 4rem;
+}
 </style>

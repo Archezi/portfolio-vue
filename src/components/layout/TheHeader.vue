@@ -18,7 +18,7 @@
       </div>
     </div>
     <main-navigation class="hide_mobile"></main-navigation>
-    <div class="menu_icon">
+    <div v-if="mobileView" class="menu_icon">
       <transition name="fade" mode="out-in">
         <base-button
           @click="openMobileNavigation"
@@ -49,7 +49,8 @@ export default {
   data() {
     return {
       hover: false,
-      mobileNavOpen: false
+      mobileNavOpen: false,
+      mobileView: true
     };
   },
   components: { BaseButton, MainNavigation, MobileNavigation },
@@ -59,7 +60,14 @@ export default {
     },
     closeMobileNavigation() {
       return (this.mobileNavOpen = false);
+    },
+    handleView() {
+      this.mobileView = window.innerWidth <=700;
     }
+  },
+  created() {
+    this.handleView();
+    window.addEventListener('resize', this.handleView);
   }
 };
 </script>
@@ -80,7 +88,7 @@ export default {
   height: calc(100vh - 12rem);
   z-index: 999;
   width: 100vw;
-  transition: transform 1s ease-out
+  transition: transform 0.5s ease-out
 }
 .header {
   position: fixed;

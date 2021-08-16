@@ -8,7 +8,7 @@
         </transition>
       </router-view>
     </div>
-    <mobile-bottom-nav v-if="mobileView" :key="mobileBottomNav"></mobile-bottom-nav>
+    <mobile-bottom-nav v-if="mobileView" key="mobileBottomNav"></mobile-bottom-nav>
   </div>
 </template>
 

@@ -23,7 +23,6 @@ ul li {
         font-size: $text-small;
         height: 2.5rem;
         padding: 0.5rem;
-        margin-right: 1rem;
         display: flex;
         align-items: center;
         justify-content: center;

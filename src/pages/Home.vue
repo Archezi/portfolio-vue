@@ -3,11 +3,18 @@
     <h2>Hi, I am Lukasz Kaczmarek</h2>
     <h3>Frontend developer base in Dublin</h3>
     <base-button class="link" link mode="call-to-action" to="/work">My work > </base-button>
-    
+    <div class="test-box">
+
+    </div>
   </div>
 </template>
-
+<script>
+export default {
+  
+}
+</script>
 <style lang="scss" scoped>
+
 .intro-container {
   position: absolute;
   top: 50%;

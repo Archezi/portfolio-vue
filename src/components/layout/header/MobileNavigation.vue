@@ -5,7 +5,7 @@
         <span class="mobile_navigation_span">navigation: {</span>
         <ul>
           <li>
-            <router-link @click="toogleMobileNavigation" to="/home">home,</router-link>
+            <router-link @click="toogleMobileNavigation" to="/">home,</router-link>
           </li>
           <li>
             <router-link @click="toogleMobileNavigation" to="/work">work,</router-link>
@@ -40,7 +40,6 @@
 </template>
 <script>
 export default {
-  props: ['mobileNavOpen'],
   
   methods: {
     toogleMobileNavigation() {

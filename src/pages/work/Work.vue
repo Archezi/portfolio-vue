@@ -38,16 +38,6 @@ h2 {
   font-size: $heading-primary;
   font-family: $font-secondary;
 }
-ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 2rem;
-  @include respond(phone) {
-     grid-template-columns: 1fr;
-     li {
-       width: 100%;
-     }
-   }
-}
+
 
 </style>
