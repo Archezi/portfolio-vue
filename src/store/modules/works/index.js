@@ -8,16 +8,19 @@ export default {
     return {
       works: [
         {
-          id: 'w1',
+          id: 'project1',
           title: 'Explorer',
           shortDescription: 'Database website for Star Trek Fleet Command game. You can find all necessary information about build cost of components',
           skills: ['CSS & HTML', 'Javascript', 'Vue', ],
-          description: ['tex one', 'text two'],
+          description: [
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat labore ullam corrupti eaque, nemo pariatur omnis repellat dicta voluptates perferendis eius ex expedita nobis sunt, ut soluta repudiandae, iure aut!', 
+          
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat labore ullam corrupti eaque, nemo pariatur omnis repellat dicta voluptates perferendis eius ex expedita nobis sunt, ut soluta repudiandae, iure aut!'],
           image: 'project-1'
 
         },
         {
-          id: 'w2',
+          id: 'project2',
           title: 'Project 2',
           skills: ['CSS & HTML', 'Javascript', 'Vue', 'CSS & HTML', 'Vue', 'Javascript',  ],
           shortDescription: 'Database website',
@@ -26,7 +29,7 @@ export default {
           
         },
         {
-          id: 'w3',
+          id: 'project3',
           title: 'Project 2',
           shortDescription: 'Database website',
 
@@ -36,7 +39,7 @@ export default {
           
         },
         {
-          id: 'w4',
+          id: 'project4',
           title: 'Project 2',
           shortDescription: 'Database website',
           skills: ['CSS & HTML', 'Javascript', 'Vue', ],

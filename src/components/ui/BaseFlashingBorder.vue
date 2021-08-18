@@ -5,7 +5,7 @@
       <span></span>
     </div>
     <div class="box__wrapper">
-        <slot></slot>
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -13,30 +13,22 @@
 export default {};
 </script>
 <style lang="scss" scoped>
-
-  $color-first: #2B85E7;
-  $color-second: #7eaada;
-  $color-third: #7eaada;
-  $color-forth: #2B85E7;
-  $block-width: 100% ;
-  $block-height: 100%;
-  $border-width: 0.4rem;
-  $border-radius-outer: 8px;
-  $border-radius-inner: calc(($border-radius-outer) / 2);
-  
-
-  
-
-
+$color-first: #5c25e6;
+$color-second: #7eaada67;
+$color-third: #7eaada67;
+$color-forth: #5c25e6;
+$block-width: 100%;
+$block-height: 100%;
+$border-width: 0.4rem;
+$border-radius-outer: 8px;
+$border-radius-inner: calc(($border-radius-outer) / 2);
 
 .animated-box {
-    // visibility: hidden;
+  // visibility: hidden;
   width: 100%;
   height: 100%;
   animation: o-rotate-360 linear 8s infinite;
-    &:hover {
-       visibility: show;
-    }
+
   span {
     display: block;
     width: 100%;
@@ -54,23 +46,21 @@ export default {};
     }
 
     &:first-child {
-      background: $color-first;
+      background: $color-dark;
       filter: blur(2rem);
 
       &:after {
-        background: $color-second;
-      filter: blur(2rem);
-
+        background: $color-dark;
+        filter: blur(2rem);
       }
     }
 
     &:last-child {
-      background: $color-third;
+      background: $color-dark;
       filter: blur(2rem);
       &:after {
-        background: $color-forth;
-      filter: blur(2rem);
-
+        background: $color-dark;
+        filter: blur(2rem);
       }
     }
   }
@@ -78,23 +68,49 @@ export default {};
 // component
 
 .box {
-  
   width: $block-width;
   height: $block-height;
-  border: 2px  solid  $border-secondary;
+  border: 2px solid $border-secondary;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 10px 40px -10px rgba(0, 64, 128, 0.2);
+//   box-shadow: 0 10px 40px -10px rgba(0, 64, 128, 0.2);
   border-radius: $border-radius-outer;
+  &:hover {
+    
+    span {
+      &:first-child {
+        background: $color-first;
+        filter: blur(2rem);
 
+        &:after {
+          background: $color-second;
+          filter: blur(2rem);
+        }
+      }
+
+      &:last-child {
+        background: $color-third;
+        filter: blur(2rem);
+        &:after {
+          background: $color-forth;
+          filter: blur(2rem);
+        }
+      }
+    }
+    &__wrapper {
+     
+    }
+  }
   &__wrapper {
-    width : calc(100% - #{$border-width});
-    height: calc(100% - #{$border-width});
+       width: calc(100% - #{$border-width});
+      height: calc(100% - #{$border-width});
+    
     position: absolute;
-    top: 50%; left: 50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     background: $color-dark;
-    padding: 1.2rem 1rem 1.8rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     border-radius: $border-radius-inner;
@@ -104,8 +120,12 @@ export default {};
 // Objects
 
 @keyframes o-rotate-360 {
-  0% { transform: rotate(0) }
+  0% {
+    transform: rotate(0);
+  }
 
-  100% { transform: rotate(360deg) }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 </style>

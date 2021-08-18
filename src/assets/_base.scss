@@ -31,21 +31,15 @@ html {
   // This defines what 1rem is
   font-size: 62.5%;
   overflow-y: scroll;
-
-  // margin-left: calc(100vw - 100%);
-  // margin-right: 0;
 }
-
 body {
   box-sizing: border-box;
   background: #fff;
 }
-
 #app {
   background-color: #161c25;
   color: #daeaf2;
 }
-
 a {
   text-decoration: none;
   font: inherit;

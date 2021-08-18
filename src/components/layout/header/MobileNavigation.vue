@@ -51,19 +51,18 @@ export default {
 </script>
 <style lang="scss" scoped>
 .mobile_nav_container {
-  position: absolute;
-  top: 0rem;
+  position: fixed;
+  top: 0;
   left: 0;
   display: grid;
   padding: 0 4rem;
-  width: 100%;
-  max-height: 100vh;
-  height: calc(100% - #{$headerHeight});
-  height: 100%;
+  width: 100vw;
+  // height: 100vh;
+  height: calc(100vh -  #{$headerHeight});
   font-family: $font-secondary;
   color: $color-primary-dark;
   background-color: $background-main;
-  z-index: 999;
+  z-index: 999999;
 }
 nav {
   position: relative;
@@ -75,9 +74,6 @@ nav {
   font-size: $text-extra;
   padding-bottom: 2rem;
 }
-// span {
-//
-// }
 ul {
   display: flex;
   flex-direction: column;

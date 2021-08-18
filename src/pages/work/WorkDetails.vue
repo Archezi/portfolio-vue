@@ -1,84 +1,103 @@
 <template>
-  <section class="work-dialog">
-    <div class="dialog-wrapper">
-      <div class="project-presentation-left">
+  <div>
+    <section class="project-visual-presentation">
+      <div class="project-visual-conteiner">
         <img
           :src="require(`@/assets/images/${projectImage}.jpg`)"
           :alt="title"
         />
+        <!-- <img
+        src="https://source.unsplash.com/user/markusspiske/1000x500"
+        alt=""
+      /> -->
       </div>
-      <div class="project-info-right">
-        <header>
-          <h3>Project</h3>
-          <h1 class="project-title">{{ projectTitle }}</h1>
-            <ul class="skill-list">
-              <base-skill-badge
-                v-for="skill in filteredSkills"
-                :key="skill"
-                :skills="skill"
-              ></base-skill-badge>
-            </ul>
-        </header>
-        <section class="project-description">
-          <h3>About</h3>
-          <div class="project-description-container">
-            <p v-for="desc in prjDescription" :key="desc" :description="desc">{{ desc }}</p>
-          </div>
-        </section>
+    </section>
+    <section class="project-info">
+      <h3>Project</h3>
+      <h1 class="project-title">{{ projectTitle }}</h1>
+      <div>
+        <ul class="skill-list">
+          <base-skill-badge
+            v-for="skill in filteredSkills"
+            :key="skill"
+            :skills="skill"
+          ></base-skill-badge>
+        </ul>
+      </div>
 
-        <div class="prject-actions-buttons">
-          <base-button class="action-button" link mode="outline"
-            ><img
-              src="@/assets/icons/code.svg"
-              alt="code icon"
-            />Code</base-button
-          >
-          <base-button class="action-button" link mode="outline"
-            ><img
-              src="@/assets/icons/demo.svg"
-              alt="demo icon"
-            />demo</base-button
-          >
+      <div class="project-description">
+        <h3>About</h3>
+        <div class="project-description-container">
+          <p v-for="desc in prjDescription" :key="desc" :description="desc">
+            {{ desc }}
+          </p>
         </div>
-        <!-- <button>close</button> -->
       </div>
-    </div>
-  </section>
+    </section>
+    <section class="call-to-action">
+      <div class="cta-buttons">
+        <base-button
+          class="action-button"
+          link
+          :to="prjLiveSiteLink"
+          mode="outline"
+          ><img
+            src="@/assets/icons/demo.svg"
+            alt="demo icon"
+          />demo</base-button
+        >
+        <base-button
+          class="action-button"
+          :to="prjGithubLink"
+          link
+          mode="outline"
+          ><img
+            src="@/assets/icons/code.svg"
+            alt="code icon"
+          />Code</base-button
+        >
+      </div>
+    </section>
+  </div>
 </template>
 <script>
 import BaseSkillBadge from '../../components/ui/BaseSkillBadge.vue';
-// import BaseParagraph from '../../components/ui/BaseParagraph.vue';
 export default {
   props: ['id'],
   components: {
-    BaseSkillBadge,
-    // BaseParagraph
+    BaseSkillBadge
   },
   data() {
     return {
-      slectedWork: null
+      selectedWork: null
     };
   },
   computed: {
     projectTitle() {
-      return this.slectedWork.title;
+      return this.selectedWork.title;
     },
     projectDescription() {
-      return this.slectedWork.description;
+      return this.selectedWork.description;
     },
     projectImage() {
-      return this.slectedWork.image;
+      return this.selectedWork.image;
     },
     filteredSkills() {
-      return this.slectedWork.skills;
+      return this.selectedWork.skills;
     },
     prjDescription() {
-      return this.slectedWork.description;
+      return this.selectedWork.description;
+    },
+    prjLiveSiteLink() {
+      return this.selectedWork.liveSite;
+    },
+    prjGithubLink() {
+      return this.selectedWork.githubLink;
     }
   },
 
   created() {
-    this.slectedWork = this.$store.getters['works/works'].find(
+    this.selectedWork = this.$store.getters['works/works'].find(
       work => work.id === this.id
     );
   }
@@ -86,113 +105,82 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.work-dialog {
-  @include absCenter;
-  display: grid;
-  grid-template-columns: 1fr;
-  min-height: 500px;
+.project-visual-presentation,
+.project-info,
+.call-to-action {
   width: 100%;
-  box-sizing: border-box;
-  background-color: $background-secondary;
-  border: 1px solid $border-primary;
-  
   @include respond(phone) {
-    width: 100vw;
-    padding: 0 2rem;
-    border: none;
-    position: absolute;
-    left: 0;
-    top: $headerHeight;
-    transform: translate(0, 0);
-    padding-bottom: $headerHeight;
-  }
-}
-.dialog-wrapper {
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  @include respond(phone) {
-    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
   }
 }
 
-.project-presentation-left {
+.project-visual-container {
+  width: 100%;
+  height: 50rem;
   img {
     width: 100%;
-    height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    height: auto;
   }
 }
-.project-info-right {
-  padding: 2rem;
-  border-left: 1px solid $border-primary;
+h1,
+h3,
+ul {
   font-family: $font-primary;
-  color: $color-primary-light;
-  @include respond(phone) {
-    border: none;
-  }
-  h1,
-  h3,
-  ul.skill-list,
-  .project-description,
-  .project-description h4,
-  .project-description p,
-  .prject-actions-buttons {
-    margin-bottom: 2rem;
-  }
-
-  header h3 {
-    font-size: $text-extra;
-    font-family: $font-secondary;
-    color: $color-secondary;
-    text-transform: uppercase;
-    font-weight: 400;
-  }
-  h1 {
-    font-size: $heading-primary;
-    font-family: $font-primary;
-    font-weight: 700;
-  }
-  ul.skill-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: flex-start;
-    font-size: $text-small;
-    margin-right: 1rem;
-  }
+  margin-top: 1rem;
 }
-.project-description h3 {
-  font-size: $text-extra;
-  font-family: $font-secondary;
+h1 {
+  font-size: $heading-primary;
   text-transform: uppercase;
-  font-weight: 400;
-  color: $color-secondary;
+  font-weight: 500;
 }
-.project-description-container {
-  height: 22rem;
-
-  p {
-    margin-bottom: 2rem;
-    color: $color-primary-dark;
+h3 {
+  color: $color-secondary;
+  font-size: $heading-tertiary;
+}
+p {
+  margin-top: 1rem;
+  line-height: 1.2;
+  font-family: $font-secondary;
+  width: 60%;
+  @include respond(phone) {
+    width: 100%;
   }
 }
-
-.prject-actions-buttons {
-  display: flex;
-
+ul.skill-list {
+  height: 5.5rem;
+  max-height: 5.5rem;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: repeat(4, auto);
+  justify-content: start;
+  font-size: $text-small;
+  margin-right: 1rem;
+}
+.call-to-action {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  .cta-buttons {
+    display: grid;
+    grid-gap: 1rem;
+    grid-auto-flow: column;
+    justify-content: start;
+  }
   .action-button {
-    font-size: $text-primary;
-    padding: 0.5rem 1rem;
-    text-transform: lowercase;
-    display: flex;
-    align-content: center;
-    margin-right: 1rem;
-
-    img {
-      height: 1.6rem;
-      width: auto;
-      padding-right: 1rem;
-    }
+    font-size: $text-extra;
+    font-family: $font-primary;
+    padding: 0.5rem;
+    width: 10rem;
+    display: grid;
+    grid-gap: 0.5rem;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: start;
   }
 }
 </style>

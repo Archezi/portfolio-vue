@@ -31,6 +31,11 @@ ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 5rem;
+  
+  @include respond(tab-port) {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2.5rem
+  }
   @include respond(phone) {
     grid-template-columns: 1fr;
   }

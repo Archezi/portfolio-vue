@@ -8,7 +8,11 @@
         </transition>
       </router-view>
     </div>
-    <mobile-bottom-nav v-if="mobileView" key="mobileBottomNav"></mobile-bottom-nav>
+    <mobile-bottom-nav
+      v-if="mobileView"
+      key="mobileBottomNav"
+    ></mobile-bottom-nav>
+   
   </div>
 </template>
 
@@ -22,8 +26,8 @@ export default {
   },
   data() {
     return {
-      mobileView: false,
-    }
+      mobileView: false
+    };
   },
   methods: {
     handleView() {
@@ -49,7 +53,12 @@ export default {
 html {
   font-family: 'Roboto', 'Roboto Mono' sans-serif;
 }
-
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: $border-primary;
+}
 body {
   margin: 0;
   background-color: $background-primary;
@@ -61,18 +70,32 @@ body {
   max-width: 100vw;
   padding-top: $headerHeight;
   padding-bottom: $headerHeight;
+  @include respond(tab-port) {
+    width: 100vw;
+  }
   @include respond(phone) {
     width: 100vw;
     min-height: 100vh;
   }
+  
 }
 .container {
   position: relative;
   width: 100rem;
+  max-width: 100vw;
+  padding: 0 2rem;
   height: 100%;
   min-height: $containerHeight;
   padding: $headerHeight 0 0 0;
   margin: 0 auto;
+  @include respond(tab-land) {
+    width: 100vw;
+    padding: 0 2rem;
+  }
+  @include respond(tab-port) {
+    width: 100vw;
+    padding: 0 2rem;
+  }
   @include respond(phone) {
     width: 100%;
     max-width: 100vw;

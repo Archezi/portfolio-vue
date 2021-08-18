@@ -1,8 +1,14 @@
 <template>
   <li>
-    <base-button @mouseover="hover = true" @mouseleave="hover = false" class="work-thumbnail" link :to="selectedWorkDetails">
+    <base-button
+      @mouseover="hover = true"
+      @mouseleave="hover = false"
+      class="work-thumbnail"
+      link
+      :to="selectedWorkDetails"
+    >
       <div class="thumbnail-wrapper">
-        <base-flashing-border  >
+        <base-flashing-border>
           <div class="thumbnail-content">
             <h3>{{ projectTitle }}</h3>
             <div class="thumbnail-project-description">
@@ -32,7 +38,7 @@ export default {
   data() {
     return {
       hover: false
-    }
+    };
   },
   computed: {
     projectTitle() {
@@ -65,10 +71,19 @@ export default {
   height: 22.5rem;
   width: 47.5rem;
   transition: all ease-in-out 0.3s;
+  box-shadow: 0px 5px 13px -5px #000000, 5px 5px 15px -7px rgba(255,255,255,0);
+  @include respond(tab-port) {
+    height: 32.5rem;
+     width: 100%;
+  }
   @include respond(phone) {
     width: 100%;
-    height: 22.5rem;
+   aspect-ratio: 1;
   }
+}
+.thumbnail-content {
+  height: 100%;
+  display: grid;
 }
 .thumbnail-wrapper {
   // padding: 2rem;
@@ -100,6 +115,7 @@ ul.skill-list {
   grid-gap: 0.5rem;
   grid-template-columns: repeat(4, auto);
   justify-content: start;
+  align-self: end;
   font-size: $text-small;
   margin-right: 1rem;
 }

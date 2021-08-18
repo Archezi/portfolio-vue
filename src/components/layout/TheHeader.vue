@@ -35,7 +35,7 @@
   <transition name="fade" mode="out-in">
     <mobile-navigation
       :class="{ openMobileNav: mobileNavOpen, closeMobileNav: !mobileNavOpen }"
-      class=" mobile_only "
+      class=" mobile_only fixed-mobile-navigation"
       @toggle-navigation="closeMobileNavigation"
     ></mobile-navigation>
   </transition>
@@ -71,7 +71,7 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style lang="scss" >
 .openMobileNav {
   transform: translateX(0rem);
   display: block;
@@ -105,6 +105,17 @@ export default {
   font-size: $text-extra;
   font-family: $font-secondary;
   z-index: 999;
+  // box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px -7px rgba(255,255,255,0);
+  @include respond(tab-land) {
+    width: 100vw;
+    padding: 0 2rem;
+    
+
+  }
+  @include respond(tab-port) {
+    width: 100vw;
+    padding: 0 2rem;
+  }
   @include respond(phone) {
     width: 100vw;
   }
@@ -113,6 +124,9 @@ export default {
   transform: translateX(-60rem);
   transition: 1s transform ease-in-out;
   z-index: 999;
+}
+.fixed-mobile-navigation {
+  position: fixed;
 }
 .mobile_nav_open {
   right: 0;
