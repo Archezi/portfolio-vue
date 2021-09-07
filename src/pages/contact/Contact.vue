@@ -1,5 +1,23 @@
 <template>
   <div class="contact-form-container">
+    <base-dialog
+      title="Invalid Input!"
+      v-if="invalidInput"
+      @close="confirmError"
+    >
+      <template #default>
+        <div class="dialog__msg">
+          <p>Unfortunately, at least one input value is invalid.</p>
+          <p>
+            Please check all inputs and make sure you enter at least a few
+            letters in each of the input.
+          </p>
+        </div>
+      </template>
+      <template #actions>
+        <base-button mode="filled" @click="confirmError">Okay</base-button>
+      </template>
+    </base-dialog>
     <h2>Contact form</h2>
     <form class="contact-form" @submit.prevent="sendEmail">
       <label>Name</label>
@@ -35,10 +53,13 @@
 
 <script>
 import emailjs from 'emailjs-com';
+import BaseDialog from '../../components/ui/BaseDialog.vue';
 
 export default {
+  components: { BaseDialog },
   data() {
     return {
+      allowSubmit: false,
       invalidInput: false,
       name: '',
       email: '',
@@ -49,6 +70,7 @@ export default {
     sendEmail(e) {
       if (this.name === '' || this.email === '' || this.message === '') {
         this.invalidInput = true;
+        return;
       }
       emailjs
         .sendForm(
@@ -69,6 +91,9 @@ export default {
       this.name = '';
       this.email = '';
       this.message = '';
+    },
+    confirmError() {
+      this.invalidInput = false;
     }
   }
 };
@@ -143,6 +168,10 @@ input[type='submit'] {
   p {
     color: red;
   }
+}
+.dialog__msg p {
+  padding-top: 1rem;
+  color: white;
 }
 button {
   width: 15rem;

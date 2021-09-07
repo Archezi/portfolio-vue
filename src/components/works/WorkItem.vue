@@ -71,14 +71,14 @@ export default {
   height: 22.5rem;
   width: 47.5rem;
   transition: all ease-in-out 0.3s;
-  box-shadow: 0px 5px 13px -5px #000000, 5px 5px 15px -7px rgba(255,255,255,0);
+  // box-shadow: 0px 5px 13px -5px #000000, 5px 5px 15px -7px rgba(255,255,255,0);
   @include respond(tab-port) {
     height: 32.5rem;
-     width: 100%;
+    width: 100%;
   }
   @include respond(phone) {
     width: 100%;
-   aspect-ratio: 1;
+    aspect-ratio: 1;
   }
 }
 .thumbnail-content {

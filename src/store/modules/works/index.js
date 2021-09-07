@@ -9,43 +9,50 @@ export default {
       works: [
         {
           id: 'project1',
-          title: 'Explorer',
-          shortDescription: 'Database website for Star Trek Fleet Command game. You can find all necessary information about build cost of components',
-          skills: ['CSS & HTML', 'Javascript', 'Vue', ],
+          title: 'Portfolio',
+          shortDescription: 'My previous portfolio website',
+          skills: ['CSS & HTML', 'Javascript', 'Photoshop'],
           description: [
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat labore ullam corrupti eaque, nemo pariatur omnis repellat dicta voluptates perferendis eius ex expedita nobis sunt, ut soluta repudiandae, iure aut!', 
-          
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat labore ullam corrupti eaque, nemo pariatur omnis repellat dicta voluptates perferendis eius ex expedita nobis sunt, ut soluta repudiandae, iure aut!'],
-          image: 'project-1'
+            'This project was all about apllying different ',
 
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat labore ullam corrupti eaque, nemo pariatur omnis repellat dicta voluptates perferendis eius ex expedita nobis sunt, ut soluta repudiandae, iure aut!'
+          ],
+          image: 'portfolio/portfolio-Mockup-MackBook.jpg',
+          websiteLink: '',
+          githubLink: ''
         },
         {
           id: 'project2',
           title: 'Project 2',
-          skills: ['CSS & HTML', 'Javascript', 'Vue', 'CSS & HTML', 'Vue', 'Javascript',  ],
+          skills: ['CSS & HTML', 'Javascript', 'Vue'],
           shortDescription: 'Database website',
           description: ['description part one', 'description part two'],
-          image: 'project-1'
-          
+          image: 'javascript/javascript-MacBook-Pro-mockup-front-page.jpg',
+          websiteLink: '',
+          githubLink: ''
         },
         {
           id: 'project3',
-          title: 'Project 2',
+          title: 'Project 3',
           shortDescription: 'Database website',
 
-          skills: ['CSS & HTML', 'Javascript', 'Vue', ],
+          skills: ['CSS & HTML', 'Javascript', 'Vue'],
           description: ['description part one', 'description part two'],
-          image: 'project-1'
-          
+          image:
+            'stitchingfiary/stitching-fairy-MacBook-Pro-mockup-front-page.jpg',
+          websiteLink: '',
+          githubLink: ''
         },
         {
           id: 'project4',
-          title: 'Project 2',
+          title: 'Project 4',
           shortDescription: 'Database website',
-          skills: ['CSS & HTML', 'Javascript', 'Vue', ],
+          skills: ['CSS & HTML', 'Javascript', 'Vue'],
           description: ['description part one', 'description part two'],
-          image: 'project-1'
-          
+          image:
+            'newprovidance/newprovidance-MacBook-Pro-mockup-front-page.jpg',
+          websiteLink: '',
+          githubLink: ''
         }
       ]
     };

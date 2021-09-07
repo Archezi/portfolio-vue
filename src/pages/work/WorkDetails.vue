@@ -2,14 +2,7 @@
   <div>
     <section class="project-visual-presentation">
       <div class="project-visual-conteiner">
-        <img
-          :src="require(`@/assets/images/${projectImage}.jpg`)"
-          :alt="title"
-        />
-        <!-- <img
-        src="https://source.unsplash.com/user/markusspiske/1000x500"
-        alt=""
-      /> -->
+        <img :src="require(`@/assets/images/${projectImage}`)" :alt="title" />
       </div>
     </section>
     <section class="project-info">
@@ -116,9 +109,9 @@ export default {
   }
 }
 
-.project-visual-container {
+.project-visual-conteiner {
   width: 100%;
-  height: 50rem;
+  height: auto;
   img {
     width: 100%;
     max-width: 100%;

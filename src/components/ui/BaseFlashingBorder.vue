@@ -21,7 +21,7 @@ $block-width: 100%;
 $block-height: 100%;
 $border-width: 0.4rem;
 $border-radius-outer: 8px;
-$border-radius-inner: calc(($border-radius-outer) / 2);
+$border-radius-inner: calc((#{$border-radius-outer}) / 2);
 
 .animated-box {
   // visibility: hidden;
@@ -73,10 +73,9 @@ $border-radius-inner: calc(($border-radius-outer) / 2);
   border: 2px solid $border-secondary;
   overflow: hidden;
   position: relative;
-//   box-shadow: 0 10px 40px -10px rgba(0, 64, 128, 0.2);
+  //   box-shadow: 0 10px 40px -10px rgba(0, 64, 128, 0.2);
   border-radius: $border-radius-outer;
   &:hover {
-    
     span {
       &:first-child {
         background: $color-first;
@@ -98,13 +97,12 @@ $border-radius-inner: calc(($border-radius-outer) / 2);
       }
     }
     &__wrapper {
-     
     }
   }
   &__wrapper {
-       width: calc(100% - #{$border-width});
-      height: calc(100% - #{$border-width});
-    
+    width: calc(100% - #{$border-width});
+    height: calc(100% - #{$border-width});
+
     position: absolute;
     top: 50%;
     left: 50%;
