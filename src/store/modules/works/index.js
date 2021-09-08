@@ -8,51 +8,68 @@ export default {
     return {
       works: [
         {
-          id: 'project1',
-          title: 'Portfolio',
-          shortDescription: 'My previous portfolio website',
-          skills: ['CSS & HTML', 'Javascript', 'Photoshop'],
+          id: 'project0',
+          title: 'Portfolio 2.0',
+          shortDescription:
+            'My second portfolio website made with use of VueJs',
+          skills: ['SASS & HTML', 'Javascript', 'VueJs', 'Vuex', 'Photoshop'],
           description: [
-            'This project was all about apllying different ',
-
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat labore ullam corrupti eaque, nemo pariatur omnis repellat dicta voluptates perferendis eius ex expedita nobis sunt, ut soluta repudiandae, iure aut!'
+            'This project was all about applying and presenting my skill in the design and development of the website using VueJs, .'
+          ],
+          image: 'portfolioVue/portfolioVue-Mockup-MackBook.jpg',
+          websiteLink: 'https://portfolio-vue-386d3.web.app/',
+          githubLink: 'https://github.com/Archezi/portfolio-vue'
+        },
+        {
+          id: 'project1',
+          title: 'Portfolio 1.0',
+          shortDescription:
+            'My first portfolio website to gather part of my projects',
+          skills: ['SASS & HTML', 'Javascript', 'Photoshop'],
+          description: [
+            'This project was all about applying and presenting my skill in the design and development of the website using vanilla Javascript and Sass.'
           ],
           image: 'portfolio/portfolio-Mockup-MackBook.jpg',
-          websiteLink: '',
-          githubLink: ''
+          websiteLink: 'https://archezi.github.io/PortfolioWebsite/index.html',
+          githubLink: 'https://github.com/Archezi/PortfolioWebsite'
         },
         {
           id: 'project2',
-          title: 'Project 2',
-          skills: ['CSS & HTML', 'Javascript', 'Vue'],
-          shortDescription: 'Database website',
-          description: ['description part one', 'description part two'],
+          title: 'Budget & ToDo App',
+          skills: ['SASS & HTML', 'Javascript'],
+          shortDescription: 'Budget & ToDo application in vanilla javascript.',
+          description: [
+            'This is a project to showcase my understanding of the core concept of the Javascript language and applying them to this project.'
+          ],
           image: 'javascript/javascript-MacBook-Pro-mockup-front-page.jpg',
-          websiteLink: '',
-          githubLink: ''
+          websiteLink: 'https://archezi.github.io/javascript-lab/',
+          githubLink: 'https://github.com/Archezi/javascript-lab'
         },
         {
           id: 'project3',
-          title: 'Project 3',
-          shortDescription: 'Database website',
+          title: 'Stitching Fairy',
+          shortDescription: 'This is my website for local tailoring company',
 
-          skills: ['CSS & HTML', 'Javascript', 'Vue'],
-          description: ['description part one', 'description part two'],
+          skills: ['SASS & HTML', 'Javascript', 'Photoshop', 'Grid'],
+          description: [
+            `Stitching fairy is my project for a small tailoring workshop who wanted to expand their range of services and update the previous website. For this project I created a logo,  style guide for the company and a website. Website is developed with the use of Grid layout and SASS for styling. `
+          ],
           image:
             'stitchingfiary/stitching-fairy-MacBook-Pro-mockup-front-page.jpg',
-          websiteLink: '',
-          githubLink: ''
+          websiteLink: 'https://www.stitchingfairy.com/',
+          githubLink: 'https://github.com/Archezi/stitchingfairyalternations'
         },
         {
           id: 'project4',
-          title: 'Project 4',
-          shortDescription: 'Database website',
-          skills: ['CSS & HTML', 'Javascript', 'Vue'],
+          title: 'NewProvidance',
+          shortDescription:
+            'One page mockup converted to the fully interactive website base on the Bootstrap framework',
+          skills: ['CSS & HTML', 'Bootstrap', 'Javascript'],
           description: ['description part one', 'description part two'],
           image:
             'newprovidance/newprovidance-MacBook-Pro-mockup-front-page.jpg',
-          websiteLink: '',
-          githubLink: ''
+          websiteLink: 'https://archezi.github.io/newprovidence_1.0/',
+          githubLink: 'https://github.com/Archezi/newprovidence_1.0'
         }
       ]
     };

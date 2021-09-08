@@ -102,7 +102,7 @@ h3 {
   height: 7.5rem;
 }
 h4 {
-  font-size: $text-primary;
+  font-size: $text-extra;
   color: $color-secondary;
   font-family: $font-secondary;
 }

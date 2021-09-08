@@ -29,26 +29,22 @@
     </section>
     <section class="call-to-action">
       <div class="cta-buttons">
-        <base-button
-          class="action-button"
-          link
-          :to="prjLiveSiteLink"
-          mode="outline"
-          ><img
-            src="@/assets/icons/demo.svg"
-            alt="demo icon"
-          />demo</base-button
-        >
-        <base-button
-          class="action-button"
-          :to="prjGithubLink"
-          link
-          mode="outline"
-          ><img
-            src="@/assets/icons/code.svg"
-            alt="code icon"
-          />Code</base-button
-        >
+        <a :href="prjLiveSiteLink">
+          <button
+            class="action-button"
+            link
+            :to="prjLiveSiteLink"
+            mode="outline"
+          >
+            <img src="@/assets/icons/demo.svg" alt="demo icon" />
+            demo
+          </button>
+        </a>
+        <a :href="prjGithubLink" target="blank">
+          <button class="action-button" link mode="outline">
+            <img src="@/assets/icons/code.svg" alt="code icon" />Code
+          </button>
+        </a>
       </div>
     </section>
   </div>
@@ -82,7 +78,7 @@ export default {
       return this.selectedWork.description;
     },
     prjLiveSiteLink() {
-      return this.selectedWork.liveSite;
+      return this.selectedWork.websiteLink;
     },
     prjGithubLink() {
       return this.selectedWork.githubLink;
@@ -165,15 +161,27 @@ ul.skill-list {
     justify-content: start;
   }
   .action-button {
+    display: grid;
+    width: 10rem;
+    transition: all 0.3s ease-out;
     font-size: $text-extra;
     font-family: $font-primary;
     padding: 0.5rem;
-    width: 10rem;
-    display: grid;
     grid-gap: 0.5rem;
     grid-auto-flow: column;
     align-items: center;
     justify-content: start;
+    text-decoration: none;
+    cursor: pointer;
+    color: $color-primary-dark;
+    background-color: transparent;
+    border: 1px solid $border-secondary;
+    color: $color-primary-dark;
+    border-radius: 0.5rem;
+    &:hover {
+      color: $color-primary-light;
+      border-color: $color-primary-light;
+    }
   }
 }
 </style>
