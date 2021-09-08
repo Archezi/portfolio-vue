@@ -18,6 +18,22 @@
         <base-button mode="filled" @click="confirmError">Okay</base-button>
       </template>
     </base-dialog>
+    <base-dialog
+      title="Thank you!"
+      v-if="sendConfiramtion"
+      @close="confirmSendConfirmationModal"
+    >
+      <template #default>
+        <div class="dialog__msg">
+          <p>Your message was send.</p>
+        </div>
+      </template>
+      <template #actions>
+        <base-button mode="filled" @click="confirmSendConfirmationModal"
+          >Okay</base-button
+        >
+      </template>
+    </base-dialog>
     <h2>Contact form</h2>
     <form class="contact-form" @submit.prevent="sendEmail">
       <label>Name</label>
@@ -61,6 +77,7 @@ export default {
     return {
       allowSubmit: false,
       invalidInput: false,
+      sendConfiramtion: false,
       name: '',
       email: '',
       message: ''
@@ -72,6 +89,7 @@ export default {
         this.invalidInput = true;
         return;
       }
+
       emailjs
         .sendForm(
           'service_1bc8413',
@@ -91,9 +109,13 @@ export default {
       this.name = '';
       this.email = '';
       this.message = '';
+      this.sendConfiramtion = true;
     },
     confirmError() {
       this.invalidInput = false;
+    },
+    confirmSendConfirmationModal() {
+      this.sendConfiramtion = false;
     }
   }
 };

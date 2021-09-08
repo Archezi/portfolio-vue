@@ -5,14 +5,25 @@
       <div class="about-utilities">
         <ul>
           <li>
-            <img src="@/assets/icons/linkedin.svg" alt="linkedin icon" />
+            <a
+              href="https://www.linkedin.com/in/lukaszkaczmarek35/"
+              target="_blank"
+              ><img src="@/assets/icons/linkedin.svg" alt=""
+            /></a>
           </li>
           <li>
-            <img src="@/assets/icons/github.svg" alt="github icon" />
+            <a href="https://github.com/Archezi" target="blank"
+              ><img src="@/assets/icons/github.svg" alt=""
+            /></a>
           </li>
           <li class="resume-list-item">
-            Download my
-            <base-button link class="resume-button"
+            <a href="./src/assets/cv/cv.pdf" target="_blank">Download my</a>
+
+            <base-button
+              link
+              to="@/assets/cv/cv.pdf"
+              target="blank"
+              class="resume-button"
               >Resume
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -160,14 +171,13 @@ h3 {
   margin-bottom: 4rem;
   @include respond(phone) {
     grid-template-columns: auto;
-    grid-gap: 2rem
+    grid-gap: 2rem;
   }
   p {
     line-height: 1.6;
   }
 }
 .about_link {
-  
   padding-bottom: 4rem;
 }
 </style>
