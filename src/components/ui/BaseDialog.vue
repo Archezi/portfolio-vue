@@ -1,31 +1,28 @@
 <template>
-  <div class="backdrop" @click="$emit('close')"></div>
-  <dialog open>
-    <header>
-      <slot name="header">
-        <h2>{{ title }}</h2>
-      </slot>
-    </header>
-    <section>
-      <slot> </slot>
-    </section>
-    <menu>
-      <slot name="actions">
-        <base-button @click="$emit('close')" mode="filled">Close</base-button>
-      </slot>
-    </menu>
-  </dialog>
+  <div v-if="open" class="backdrop" @click="$emit('close')"></div>
+  <transition name="modal">
+    <dialog open v-if="open">
+      <header>
+        <slot name="header">
+          <h2>{{ title }}</h2>
+        </slot>
+      </header>
+      <section>
+        <slot> </slot>
+      </section>
+      <menu>
+        <slot name="actions">
+          <base-button @click="$emit('close')" mode="filled">Close</base-button>
+        </slot>
+      </menu>
+    </dialog>
+  </transition>
 </template>
 <script>
 import BaseButton from './BaseButton.vue';
 export default {
   components: { BaseButton },
-  props: {
-    title: {
-      type: String,
-      required: false
-    }
-  },
+  props: ['title', 'open'],
   emits: ['close']
 };
 </script>
@@ -81,6 +78,68 @@ menu {
   background-color: $background-modal;
 }
 
+//  =================================================
+//  Transiton
+
+.modal-enter-active {
+  -webkit-animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.modal-leave-active {
+  -webkit-animation: scale-out-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    both;
+  animation: scale-out-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@-webkit-keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes scale-out-center {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+}
+@keyframes scale-out-center {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+}
 @media (min-width: 768px) {
   dialog {
     left: calc(50% - 20rem);

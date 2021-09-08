@@ -7,7 +7,7 @@
           <li>
             <a
               href="https://www.linkedin.com/in/lukaszkaczmarek35/"
-              target="_blank"
+              target="blank"
               ><img src="@/assets/icons/linkedin.svg" alt=""
             /></a>
           </li>
@@ -17,29 +17,26 @@
             /></a>
           </li>
           <li class="resume-list-item">
-            <a href="./src/assets/cv/cv.pdf" target="_blank">Download my</a>
-
-            <base-button
-              link
-              to="@/assets/cv/cv.pdf"
-              target="blank"
-              class="resume-button"
-              >Resume
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="30.849"
-                height="28.921"
-                viewBox="0 0 30.849 28.921"
-              >
-                <path
-                  id="Icon_metro-download"
-                  data-name="Icon metro-download"
-                  d="M17.995,19.28l7.712-7.712H19.923V3.856H16.067v7.712H10.283Zm7.011-3.155-2.161,2.161,7.835,2.922-12.685,4.73L5.31,21.208l7.835-2.922-2.161-2.161L2.571,19.28v7.712l15.424,5.784,15.424-5.784V19.28Z"
-                  transform="translate(-2.571 -3.856)"
-                  fill="#101211"
-                />
-              </svg>
-            </base-button>
+            Download my
+            <a href="/cv.pdf" target="blank">
+              <button href="/cv.pdf" class="resume-button">
+                Resume
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30.849"
+                  height="28.921"
+                  viewBox="0 0 30.849 28.921"
+                >
+                  <path
+                    id="Icon_metro-download"
+                    data-name="Icon metro-download"
+                    d="M17.995,19.28l7.712-7.712H19.923V3.856H16.067v7.712H10.283Zm7.011-3.155-2.161,2.161,7.835,2.922-12.685,4.73L5.31,21.208l7.835-2.922-2.161-2.161L2.571,19.28v7.712l15.424,5.784,15.424-5.784V19.28Z"
+                    transform="translate(-2.571 -3.856)"
+                    fill="#101211"
+                  />
+                </svg>
+              </button>
+            </a>
           </li>
         </ul>
       </div>
@@ -79,6 +76,13 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {};
+  }
+};
+</script>
 
 <style lang="scss" scoped>
 .about-container {
@@ -126,9 +130,16 @@ ul li img {
   font-size: $text-primary;
 }
 .resume-button {
+  text-decoration: none;
+  font: inherit;
+  color: $color-primary-dark;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.3s ease-out;
   margin-left: 2rem;
   height: 3.5rem;
   width: 15rem;
+  border: none;
   border-radius: 1.5rem;
   background-color: $color-secondary;
   display: flex;

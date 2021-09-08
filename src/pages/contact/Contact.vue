@@ -2,15 +2,15 @@
   <div class="contact-form-container">
     <base-dialog
       title="Invalid Input!"
-      v-if="invalidInput"
+      :open="invalidInput"
       @close="confirmError"
     >
       <template #default>
         <div class="dialog__msg">
           <p>Unfortunately, at least one input value is invalid.</p>
           <p>
-            Please check all inputs and make sure you enter at least a few
-            letters in each of the input.
+            Would you mind checking all inputs and making sure you enter at
+            least a few letters in each input?
           </p>
         </div>
       </template>
@@ -20,7 +20,7 @@
     </base-dialog>
     <base-dialog
       title="Thank you!"
-      v-if="sendConfiramtion"
+      :open="sendConfiramtion"
       @close="confirmSendConfirmationModal"
     >
       <template #default>
@@ -58,9 +58,6 @@
         name="message"
       ></textarea>
       <div class="submit-group">
-        <p v-if="invalidInput">
-          One or more input fields are invalid. Please check your provided data.
-        </p>
         <button value="Send">Submit</button>
       </div>
     </form>
@@ -194,6 +191,7 @@ input[type='submit'] {
 .dialog__msg p {
   padding-top: 1rem;
   color: white;
+  font-weight: 300;
 }
 button {
   width: 15rem;

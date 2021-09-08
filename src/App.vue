@@ -12,7 +12,6 @@
       v-if="mobileView"
       key="mobileBottomNav"
     ></mobile-bottom-nav>
-   
   </div>
 </template>
 
@@ -43,7 +42,7 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 @import url('https://fonts.google.com/share?selection.family=Roboto%20Mono:wght@300;400;700');
 
 * {
@@ -77,7 +76,6 @@ body {
     width: 100vw;
     min-height: 100vh;
   }
-  
 }
 .container {
   position: relative;
