@@ -114,6 +114,9 @@ export default {
     confirmSendConfirmationModal() {
       this.sendConfiramtion = false;
     }
+  },
+  mounted() {
+    window.scrollTo(0, 0);
   }
 };
 </script>
