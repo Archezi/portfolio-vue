@@ -12,7 +12,7 @@ export default {
           title: 'Portfolio 2.0',
           shortDescription:
             'My second portfolio website made with use of VueJs',
-          skills: ['SASS & HTML', 'Javascript', 'VueJs', 'Vuex', 'Photoshop'],
+          skills: [' HTML', 'Sass', 'Javascript', 'VueJs', 'Vuex', 'Photoshop'],
           description: [
             'This project was all about applying and presenting my skill in the design and development of the website using VueJs, .'
           ],
@@ -25,7 +25,7 @@ export default {
           title: 'Portfolio 1.0',
           shortDescription:
             'My first portfolio website to gather part of my projects',
-          skills: ['SASS & HTML', 'Javascript', 'Photoshop'],
+          skills: [' HTML', 'Sass', 'Javascript', 'Photoshop'],
           description: [
             'This project was all about applying and presenting my skill in the design and development of the website using vanilla Javascript and Sass.'
           ],
@@ -36,7 +36,7 @@ export default {
         {
           id: 'project2',
           title: 'Budget & ToDo App',
-          skills: ['SASS & HTML', 'Javascript'],
+          skills: [' HTML', 'Sass', 'Javascript'],
           shortDescription: 'Budget & ToDo application in vanilla javascript.',
           description: [
             'This is a project to showcase my understanding of the core concept of the Javascript language and applying them to this project.'
@@ -50,7 +50,7 @@ export default {
           title: 'Stitching Fairy',
           shortDescription: 'This is my website for local tailoring company',
 
-          skills: ['SASS & HTML', 'Javascript', 'Photoshop', 'Grid'],
+          skills: [' HTML', 'Sass', 'Javascript', 'Photoshop', 'Grid'],
           description: [
             `Stitching fairy is my project for a small tailoring workshop who wanted to expand their range of services and update the previous website. For this project I created a logo,  style guide for the company and a website. Website is developed with the use of Grid layout and SASS for styling. `
           ],
@@ -64,7 +64,7 @@ export default {
           title: 'NewProvidance',
           shortDescription:
             'One page mockup converted to the fully interactive website base on the Bootstrap framework',
-          skills: ['CSS & HTML', 'Bootstrap', 'Javascript'],
+          skills: [' HTML', 'Sass', 'Bootstrap', 'Javascript'],
           description: ['description part one', 'description part two'],
           image:
             'newprovidance/newprovidance-MacBook-Pro-mockup-front-page.jpg',
