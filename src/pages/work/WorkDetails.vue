@@ -29,7 +29,7 @@
     </section>
     <section class="call-to-action">
       <div class="cta-buttons">
-        <a :href="prjLiveSiteLink">
+        <a :href="prjLiveSiteLink" target="blank">
           <button
             class="action-button"
             link
