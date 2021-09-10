@@ -65,7 +65,10 @@ export default {
           shortDescription:
             'One page mockup converted to the fully interactive website base on the Bootstrap framework',
           skills: [' HTML', 'Sass', 'Bootstrap', 'Javascript'],
-          description: ['description part one', 'description part two'],
+          description: [
+            'NewProvidence is a website design by "GetCraftWork", as my practice I converted this design in to live and interactive website to demonstrate and practice my knowledge of responsive development of modern website. To complete this project I used Bootstrap 3 components and grid system and I implemented few wow.js library for visual effects.',
+            'Project is created to demonstrate my HTML and CSS skills but I used some simple DOM manipulation in javascript to add some interactions to the website. '
+          ],
           image:
             'newprovidance/newprovidance-MacBook-Pro-mockup-front-page.jpg',
           websiteLink: 'https://archezi.github.io/newprovidence_1.0/',
