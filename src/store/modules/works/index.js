@@ -35,15 +35,15 @@ export default {
         },
         {
           id: 'project2',
-          title: 'Budget & ToDo App',
+          title: 'Budget',
           skills: [' HTML', 'Sass', 'Javascript'],
           shortDescription: 'Budget & ToDo application in vanilla javascript.',
           description: [
             'This is a project to showcase my understanding of the core concept of the Javascript language and applying them to this project.'
           ],
           image: 'javascript/javascript-MacBook-Pro-mockup-front-page.jpg',
-          websiteLink: 'https://archezi.github.io/javascript-lab/',
-          githubLink: 'https://github.com/Archezi/javascript-lab'
+          websiteLink: 'https://archezi.github.io/BudgetApplication/',
+          githubLink: 'https://github.com/Archezi/BudgetApplication'
         },
         {
           id: 'project3',
