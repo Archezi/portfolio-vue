@@ -12,10 +12,10 @@ export default {
           title: 'Invoice App',
           skills: ['Vue', 'Firebase', 'HTML', 'Sass', 'Javascript'],
           shortDescription:
-            'You can create, edit, delete invoices and all the is storred on firesotre database',
+            'You can create, edit, delete invoices, and all is stored on the Firesotre database.',
           description: [
-            'Project inspired by www.frontendmentor.io. I picked this project to implement my knowlage how to create Vuejs application with the firebase integration.',
-            'You can create, edit and delete invoices from database. You can filter by status of the invoices and you can change the status of each invoice. '
+            'A project inspired by www.frontendmentor.io. I picked this project to implement my knowledge of how to create a Vuejs application with the firebase integration.',
+            'You can create, edit and delete invoices from the database. You can filter by the status of the invoices, and you can change the status of each invoice. '
           ],
           image: 'invoiceApp/invoice-app.jpg',
           websiteLink: 'https://invoice-app-f8170.web.app/',
@@ -25,9 +25,9 @@ export default {
           id: 'project6',
           title: 'Pomodoro',
           skills: ['Vue', 'HTML', 'Sass', 'Javascript'],
-          shortDescription: 'Customizable pomodoro application',
+          shortDescription: 'Customizable Pomodoro application',
           description: [
-            'You can customize you pomodoros to tailor your way of work. Application will automaticly switch to brake when you pomodoro time runn out and after 4 pomodoros you application will switch to long break. '
+            'You can customize your Pomodoro to tailor your way of work. The application will automatically switch to brake when your Pomodoro time run out, and after 4 Pomodoros, your application will switch to a long break. '
           ],
           image: 'pomodoro/pomodoro.jpg',
           websiteLink: 'https://pomodoro-36e2c.web.app/',
@@ -39,7 +39,7 @@ export default {
           skills: [' HTML', 'Sass', 'Javascript'],
           shortDescription: 'Budget & ToDo application in vanilla javascript.',
           description: [
-            'This is a project to showcase my understanding of the core concept of the Javascript language and applying them to this project.'
+            'This is a project to showcase my understanding of the core concept of the Javascript language and apply them to this project.'
           ],
           image: 'javascript/javascript-MacBook-Pro-mockup-front-page.jpg',
           websiteLink: 'https://archezi.github.io/BudgetApplication/',
