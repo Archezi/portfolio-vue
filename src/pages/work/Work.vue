@@ -32,7 +32,7 @@ export default {
   position: relative;
   height: 100%;
   @include respond(phone) {
-    padding: 2rem;
+    padding: 0;
   }
 }
 .about_link {

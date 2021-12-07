@@ -78,24 +78,24 @@ export default {
   transition: all ease-in-out 0.3s;
 
   @include respond(tab-port) {
-    height: 32.5rem;
     width: 100%;
   }
   @include respond(phone) {
     width: 100%;
-    aspect-ratio: 1;
   }
 }
 .img-conteiner {
   position: relative;
   max-width: 100%;
-  height: 100%;
+  max-height: 100%;
   img {
     width: 100%;
+    height: auto;
   }
 }
 
 .thumbnail-content {
+  position: relative;
   height: 100%;
   display: grid;
   padding: 2rem;
@@ -108,7 +108,8 @@ export default {
     letter-spacing: 0.05em;
   }
   .thumbnail-project-description {
-    height: 7.5rem;
+    min-height: 7.5rem;
+    margin-bottom: 1rem;
   }
   h4 {
     font-size: $text-extra;

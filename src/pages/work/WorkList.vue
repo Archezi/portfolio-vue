@@ -1,5 +1,5 @@
 <template>
-  <ul>
+  <ul class="work-list">
     <work-item
       v-for="work in filteredWorks"
       :key="work.id"
@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-ul {
+ul.work-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 5rem;
@@ -38,6 +38,7 @@ ul {
   }
   @include respond(phone) {
     grid-template-columns: 1fr;
+    row-gap: 2.5rem;
   }
 }
 </style>
