@@ -12,10 +12,10 @@ export default {
           title: 'Invoice App',
           skills: ['Vue', 'Firebase', 'HTML', 'Sass', 'Javascript'],
           shortDescription:
-            'You can create, edit, delete invoices, and all is stored on the Firesotre database.',
+            'You can create, edit, delete invoices, and all is stored on the firebase database.',
           description: [
             'A project inspired by www.frontendmentor.io. I picked this project to implement my knowledge of how to create a Vuejs application with the firebase integration.',
-            'You can create, edit and delete invoices from the database. You can filter by the status of the invoices, and you can change the status of each invoice. '
+            'You can create, edit and delete invoices from the database. You can filter by the status of the invoices, and you can change the status of each invoice.'
           ],
           image: 'invoiceApp/invoice-app.jpg',
           websiteLink: 'https://invoice-app-f8170.web.app/',

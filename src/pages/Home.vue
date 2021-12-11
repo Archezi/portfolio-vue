@@ -1,7 +1,7 @@
 <template>
   <div class="intro-container">
     <h2>Hi, I am Lukasz Kaczmarek</h2>
-    <h3>Frontend developer base in Dublin</h3>
+    <h3>Frontend developer based in Dublin</h3>
     <base-button class="link" link mode="call-to-action" to="/work">
       My work >
     </base-button>
