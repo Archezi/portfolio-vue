@@ -37,7 +37,7 @@ export default {
           id: 'project5',
           title: 'Budget',
           skills: [' HTML', 'Sass', 'Javascript'],
-          shortDescription: 'Budget & ToDo application in vanilla javascript.',
+          shortDescription: 'Budget application in vanilla javascript.',
           description: [
             'This is a project to showcase my understanding of the core concept of the Javascript language and apply them to this project.'
           ],
