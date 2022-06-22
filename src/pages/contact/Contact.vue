@@ -89,7 +89,7 @@ export default {
 
       emailjs
         .sendForm(
-          'service_1bc8413',
+          'service_gmq6hhd',
           'template_2crsdag',
           e.target,
           'user_SdOKvKR7YXBZr0ZG5GKxo'
