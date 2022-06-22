@@ -1,5 +1,23 @@
 <template>
   <div>
+    <div class="utility-bar">
+      <span @click="goBack" class="go-back">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="12"
+          height="16"
+          viewBox="0 0 13.503 23.619"
+        >
+          <path
+            id="Icon_ionic-ios-arrow-back"
+            data-name="Icon ionic-ios-arrow-back"
+            d="M15.321,18l8.937-8.93a1.688,1.688,0,0,0-2.391-2.384L11.742,16.8a1.685,1.685,0,0,0-.049,2.327L21.86,29.32a1.688,1.688,0,0,0,2.391-2.384Z"
+            transform="translate(-11.251 -6.194)"
+          />
+        </svg>
+        Go back
+      </span>
+    </div>
     <section class="project-visual-presentation">
       <div class="project-visual-conteiner">
         <img
@@ -64,6 +82,11 @@ export default {
       selectedWork: null
     };
   },
+  methods: {
+    goBack() {
+      return this.$router.go(-1);
+    }
+  },
   computed: {
     projectTitle() {
       return this.selectedWork.title;
@@ -105,6 +128,33 @@ export default {
     width: 100%;
     max-width: 100vw;
     overflow: hidden;
+  }
+}
+.utility-bar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 4rem;
+  .go-back {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    color: $color-secondary;
+    gap: 1rem;
+    font-size: 2rem;
+    font-family: $font-primary;
+    transition: all 0.3s ease-in-out;
+    svg path {
+      fill: $color-secondary;
+      transition: all 0.3s ease-in-out;
+    }
+    &:hover {
+      color: $color-primary-light;
+      svg path {
+        fill: $color-primary-light;
+      }
+    }
   }
 }
 
