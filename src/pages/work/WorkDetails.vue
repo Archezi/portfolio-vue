@@ -2,7 +2,10 @@
   <div>
     <section class="project-visual-presentation">
       <div class="project-visual-conteiner">
-        <img :src="require(`@/assets/images/${projectImage}`)" :alt="title" />
+        <img
+          :src="require(`@/assets/images/${projectImage}`)"
+          :alt="projectTitle"
+        />
       </div>
     </section>
     <section class="project-info">

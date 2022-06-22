@@ -8,6 +8,30 @@ export default {
     return {
       works: [
         {
+          id: 'project8',
+          title: 'Photographer',
+          skills: [
+            'Vue',
+            'Vuex',
+            'Firebase',
+            'Firestore',
+            'Authentication',
+            'Javascript',
+            'HTML',
+            'Sass'
+          ],
+          shortDescription:
+            'Portfolio Website for a photographer, where you can create/delete collections and add/remove images to each collection.',
+          description: [
+            'The main functionalities of the website are full control over the displayed content.',
+            'After login as admin, you will have access to the create/delete collection functionalities, and inside of each collection, you can add/remove single images and change the view of displayed images from Slider view to grid view.',
+            'You have an image preview of selected files.'
+          ],
+          image: 'photographer/photographer-mockup.jpg',
+          websiteLink: 'https://photographer-9ee9c.web.app/',
+          githubLink: 'https://github.com/Archezi/vue-photographer'
+        },
+        {
           id: 'project7',
           title: 'Invoice App',
           skills: ['Vue', 'Firebase', 'HTML', 'Sass', 'Javascript'],
