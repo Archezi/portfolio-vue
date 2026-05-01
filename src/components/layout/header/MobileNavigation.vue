@@ -11,6 +11,9 @@
             <router-link @click="toogleMobileNavigation" to="/work">work,</router-link>
           </li>
           <li>
+            <router-link @click="toogleMobileNavigation" to="/security">security,</router-link>
+          </li>
+          <li>
             <router-link @click="toogleMobileNavigation" to="/about">about,</router-link>
           </li>
           <li>
