@@ -20,7 +20,7 @@
     </base-dialog>
     <base-dialog
       title="Thank you!"
-      :open="sendConfiramtion"
+      :open="sendConfirmation"
       @close="confirmSendConfirmationModal"
     >
       <template #default>
@@ -74,7 +74,7 @@ export default {
     return {
       allowSubmit: false,
       invalidInput: false,
-      sendConfiramtion: false,
+      sendConfirmation: false,
       name: '',
       email: '',
       message: ''
@@ -89,10 +89,10 @@ export default {
 
       emailjs
         .sendForm(
-          'service_gmq6hhd',
-          'template_2crsdag',
+          process.env.VUE_APP_EMAILJS_SERVICE_ID,
+          process.env.VUE_APP_EMAILJS_TEMPLATE_ID,
           e.target,
-          'user_SdOKvKR7YXBZr0ZG5GKxo'
+          process.env.VUE_APP_EMAILJS_USER_ID
         )
 
         .then(
@@ -106,13 +106,13 @@ export default {
       this.name = '';
       this.email = '';
       this.message = '';
-      this.sendConfiramtion = true;
+      this.sendConfirmation = true;
     },
     confirmError() {
       this.invalidInput = false;
     },
     confirmSendConfirmationModal() {
-      this.sendConfiramtion = false;
+      this.sendConfirmation = false;
     }
   },
   mounted() {

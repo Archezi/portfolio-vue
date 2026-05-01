@@ -46,22 +46,23 @@
       <h3>Main skills</h3>
 
       <div class="skill-list-container">
+        <div class="skill-list-langueges">
+          <p>
+            JavaScript, TypeScript, Vue, Vuex, Nuxt, Jest, Firebase, HTML5,
+            CSS/SASS.
+          </p>
+        </div>
         <div class="skill-list-main">
           <p>
             Frontend development,<br />
-            UX/UI design,
+            Web Design, UX/UI design.
           </p>
         </div>
-        <div class="skill-list-langueges">
-          <p>
-            Javascritp, HTML, CSS, <br />
-            Vue
-          </p>
-        </div>
+
         <div class="skill-list-design">
           <p>
             Photoshop, Illustrator, <br />
-            AdobeXD
+            AdobeXD, Figma.
           </p>
         </div>
       </div>
@@ -178,7 +179,8 @@ h3 {
 
 .skill-list-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
   //   height: 10rem;
   font-family: $font-secondary;
   font-size: $text-primary;
