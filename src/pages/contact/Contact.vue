@@ -19,94 +19,103 @@
       </template>
     </base-dialog>
     <base-dialog
-      title="Thank you!"
-      :open="sendConfirmation"
-      @close="confirmSendConfirmationModal"
+      title="Invalid Input!"
+      :open="invalidInput"
+      @close="confirmError"
     >
       <template #default>
         <div class="dialog__msg">
-          <p>Your message was send.</p>
+          <p>Please fill in all fields before submitting.</p>
         </div>
       </template>
       <template #actions>
-        <base-button mode="filled" @click="confirmSendConfirmationModal"
-          >Okay</base-button
-        >
+        <base-button mode="filled" @click="confirmError">Okay</base-button>
       </template>
     </base-dialog>
-    <h2>Contact form</h2>
-    <form class="contact-form" @submit.prevent="sendEmail">
-      <label>Name</label>
-      <input
-        placeholder="Your name"
-        v-model="name"
-        type="text"
-        name="user_name"
-      />
-      <label>Email</label>
-      <input
-        placeholder="Your email address"
-        v-model.trim="email"
-        type="email"
-        name="user_email"
-      />
-      <label>Message</label>
-      <textarea
-        placeholder="Write your message to me"
-        rows="10"
-        v-model="message"
-        name="message"
-      ></textarea>
-      <div class="submit-group">
-        <button value="Send">Submit</button>
+
+    <transition name="fade" mode="out-in">
+
+      <div v-if="sendConfirmation" class="success-state">
+        <div class="success-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h2>message sent <span class="blink">_</span></h2>
+        <p>Thanks for reaching out. I'll get back to you as soon as possible.</p>
+        <button class="reset-btn" @click="confirmSendConfirmationModal">Send another ></button>
       </div>
-    </form>
+
+      <div v-else>
+        <h2>Contact form</h2>
+        <form class="contact-form" @submit.prevent="sendEmail">
+          <label>Name</label>
+          <input placeholder="Your name" v-model="name" type="text" name="user_name" />
+          <label>Email</label>
+          <input placeholder="Your email address" v-model.trim="email" type="email" name="user_email" />
+          <label>Message</label>
+          <textarea placeholder="Write your message to me" rows="10" v-model="message" name="message"></textarea>
+          <div class="submit-group">
+            <button type="submit" :disabled="sending">{{ sending ? 'Sending...' : 'Submit' }}</button>
+          </div>
+        </form>
+      </div>
+
+    </transition>
   </div>
 </template>
 
 <script>
-import emailjs from 'emailjs-com';
 import BaseDialog from '../../components/ui/BaseDialog.vue';
 
 export default {
   components: { BaseDialog },
   data() {
     return {
-      allowSubmit: false,
       invalidInput: false,
       sendConfirmation: false,
+      sending: false,
       name: '',
       email: '',
       message: ''
     };
   },
   methods: {
-    sendEmail(e) {
+    async sendEmail() {
       if (this.name === '' || this.email === '' || this.message === '') {
         this.invalidInput = true;
         return;
       }
 
-      emailjs
-        .sendForm(
-          process.env.VUE_APP_EMAILJS_SERVICE_ID,
-          process.env.VUE_APP_EMAILJS_TEMPLATE_ID,
-          e.target,
-          process.env.VUE_APP_EMAILJS_USER_ID
-        )
+      this.sending = true;
 
-        .then(
-          result => {
-            console.log('SUCCESS!', result.status, result.text);
-          },
-          error => {
-            console.log('FAILED...', error);
-          }
-        );
-      this.name = '';
-      this.email = '';
-      this.message = '';
-      this.sendConfirmation = true;
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            access_key: '29a20d43-bbdf-4e81-b51b-0e558650f264',
+            name: this.name,
+            email: this.email,
+            message: this.message
+          })
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          this.name = '';
+          this.email = '';
+          this.message = '';
+          this.sendConfirmation = true;
+        } else {
+          this.invalidInput = true;
+        }
+      } catch {
+        this.invalidInput = true;
+      } finally {
+        this.sending = false;
+      }
     },
     confirmError() {
       this.invalidInput = false;
@@ -195,6 +204,88 @@ input[type='submit'] {
   padding-top: 1rem;
   color: white;
   font-weight: 300;
+}
+
+.success-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem;
+  text-align: center;
+
+  h2 {
+    font-size: $heading-primary;
+    font-family: $font-primary;
+    color: $color-primary-light;
+    font-weight: 600;
+    margin-bottom: 1.6rem;
+  }
+
+  p {
+    font-family: $font-secondary;
+    font-size: $text-primary;
+    color: $color-primary-dark;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    max-width: 36rem;
+  }
+}
+
+.success-icon {
+  width: 6rem;
+  height: 6rem;
+  border: 1px solid #7c4ff5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.4rem;
+  color: #7c4ff5;
+
+  svg {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+}
+
+.reset-btn {
+  background: transparent;
+  border: 1px solid $border-primary;
+  color: $color-primary-dark;
+  font-family: $font-secondary;
+  font-size: $text-small;
+  padding: 0.8rem 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: auto;
+  float: none;
+
+  &:hover {
+    border-color: #7c4ff5;
+    color: #7c4ff5;
+    background: transparent;
+    width: auto;
+  }
+}
+
+.blink {
+  animation: blink 1s step-end infinite;
+  color: #7c4ff5;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 button {
   width: 15rem;

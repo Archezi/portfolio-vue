@@ -56,6 +56,25 @@
             <li>Evaluate its effectiveness in reducing cybersecurity risk</li>
             <li>Critically reflect on feasibility and limitations for small enterprises</li>
           </ul>
+
+          <h3>Architecture Overview</h3>
+          <figure class="arch-figure">
+            <img
+              src="@/assets/images/hybrid-least-privilege-architecture.png"
+              alt="Hybrid Least Privilege Identity Architecture diagram"
+              class="arch-image"
+            />
+            <figcaption class="arch-caption">
+              <strong>Fig. 1 — Hybrid Least Privilege Identity Architecture.</strong>
+              On-premises Active Directory serves as the authoritative identity source, managing
+              Organisational Units, Security Groups, RBAC assignments, and AGDLP file permissions.
+              Identities are synchronised to Microsoft Entra ID via hybrid provisioning agents,
+              extending governance into the cloud through Administrative Role assignments,
+              Privileged Identity Management (PIM) with Just-In-Time privilege elevation, and
+              Conditional Access policies enforcing MFA. Both planes converge on the Zero Trust
+              principles of Verify Explicitly, Use Least Privilege, Assume Breach, and Monitor &amp; Audit.
+            </figcaption>
+          </figure>
         </section>
 
         <!-- LITERATURE REVIEW -->
@@ -128,6 +147,11 @@
             </table>
           </div>
 
+          <figure class="arch-figure">
+            <img src="@/assets/images/LeastPrivilage/hyper-v.png" alt="Hyper-V Manager showing all four lab VMs running" class="arch-image" />
+            <figcaption class="arch-caption"><strong>Fig. 2 — Hyper-V Manager (LK-DSK).</strong> All four lab virtual machines — Server 2025 LAB (DC01), FS01, AADSYNC01, and CLIENT01 — running simultaneously on the host, confirming the full hybrid lab environment was operational during the project.</figcaption>
+          </figure>
+
           <p>
             The hybrid design was deliberately chosen to reflect the reality faced by many SMEs:
             organisations that cannot migrate fully to the cloud but are increasingly consuming cloud
@@ -151,6 +175,10 @@
               </tbody>
             </table>
           </div>
+          <figure class="arch-figure">
+            <img src="@/assets/images/LeastPrivilage/active-directories.png" alt="Active Directory Users and Computers showing lab OU structure" class="arch-image" />
+            <figcaption class="arch-caption"><strong>Fig. 3 — Active Directory OU Structure.</strong> The LAB domain organisational units separating users, groups, servers, workstations, and service accounts — providing the structural foundation for scoped Group Policy and RBAC assignments.</figcaption>
+          </figure>
         </section>
 
         <!-- RBAC -->
@@ -176,6 +204,11 @@
             </table>
           </div>
 
+          <figure class="arch-figure">
+            <img src="@/assets/images/LeastPrivilage/admin-tier-model.png" alt="Administrative Tier Model diagram" class="arch-image" />
+            <figcaption class="arch-caption"><strong>Fig. 4 — Administrative Tier Model.</strong> Tier 0 (Domain Controllers) is restricted to Domain Admins only, with no direct access from Tier 1 or Tier 2. Tier 1 (Servers) is accessible to Domain Admins and Server Admins. Tier 2 (Workstations) is accessible to Domain Admins and Workstation Admins only — preventing credential reuse across tiers.</figcaption>
+          </figure>
+
           <div class="callout callout--insight">
             <span class="callout-label">Security Impact</span>
             <p>
@@ -185,6 +218,11 @@
               via deny logon user rights assignments.
             </p>
           </div>
+
+          <figure class="arch-figure">
+            <img src="@/assets/images/LeastPrivilage/AGDLP.png" alt="Active Directory security groups implementing AGDLP model" class="arch-image" />
+            <figcaption class="arch-caption"><strong>Fig. 5 — Security Groups in Active Directory.</strong> Global Groups (GG-) and Domain Local Groups (DL-FS-) created in the LAB-Groups OU to implement the AGDLP permission chain. Each Domain Local Group maps directly to a specific NTFS access level on the corresponding file share.</figcaption>
+          </figure>
         </section>
 
         <!-- HARDENING -->
@@ -210,12 +248,22 @@
             </table>
           </div>
 
+          <figure class="arch-figure">
+            <img src="@/assets/images/LeastPrivilage/workstation-baseline.png" alt="Workstation Security Baseline GPO settings" class="arch-image" />
+            <figcaption class="arch-caption"><strong>Fig. 6 — Workstation Security Baseline GPO.</strong> Group Policy report confirming the applied security settings: insecure guest logons disabled, NTLMv2-only authentication enforced, and logon event auditing enabled for both success and failure — hardening endpoints against credential exposure.</figcaption>
+          </figure>
+
           <h3>Server Security Baseline</h3>
           <p>
             A <code>Server-Security-Baseline</code> GPO was linked to the LAB-Servers OU. Using
             Restricted Groups policy, local Administrators group membership on all servers was centrally
             locked to only <code>LAB\Domain Admins</code> and <code>LAB\GG-T1-ServerAdmins</code>.
           </p>
+
+          <figure class="arch-figure">
+            <img src="@/assets/images/LeastPrivilage/admin-tier-logon-restriction.png" alt="Group Policy Restricted Groups configuration locking server local admins" class="arch-image" />
+            <figcaption class="arch-caption"><strong>Fig. 7 — Server Security Baseline — Restricted Groups.</strong> The Server-Security-Baseline GPO configured via Restricted Groups policy, locking the local Administrators group on all servers to LAB\Domain Admins and LAB\GG-T1-ServerAdmins only — preventing unauthorised privilege escalation from lower-tier accounts.</figcaption>
+          </figure>
 
           <h3>Microsoft LAPS</h3>
           <p>
@@ -276,6 +324,11 @@ finance.user → GG-Finance-Users → DL-FS-Finance-RW → Modify (NTFS)</code><
             </table>
           </div>
 
+          <figure class="arch-figure">
+            <img src="@/assets/images/LeastPrivilage/NTFS.png" alt="NTFS Advanced Security Settings for IT share" class="arch-image" />
+            <figcaption class="arch-caption"><strong>Fig. 8 — NTFS Permissions — IT Share.</strong> Advanced Security Settings on the IT share confirming DL-FS-IT-RW (LAB\DL-FS-IT-RW) is the only non-system group with Modify access — all other principals are restricted to system accounts and the owner.</figcaption>
+          </figure>
+
           <div class="callout callout--insight">
             <span class="callout-label">Key Insight</span>
             <p>
@@ -285,12 +338,22 @@ finance.user → GG-Finance-Users → DL-FS-Finance-RW → Modify (NTFS)</code><
             </p>
           </div>
 
+          <figure class="arch-figure">
+            <img src="@/assets/images/LeastPrivilage/access-based-enumeration.png" alt="Access-Based Enumeration enabled on File Server shares" class="arch-image" />
+            <figcaption class="arch-caption"><strong>Fig. 9 — Access-Based Enumeration (ABE).</strong> ABE enabled on the FS01 file server shares via File and Storage Services. With ABE active, users only see folders they have permissions to access — folders they cannot read are hidden entirely, eliminating passive reconnaissance paths.</figcaption>
+          </figure>
+
           <h3>Validation Results</h3>
           <ul class="content-list">
             <li><strong>finance.user</strong> — accessed Finance share only; IT and Public folders not visible</li>
             <li><strong>it.user</strong> — accessed IT share only; Finance folder not visible</li>
             <li><strong>public.user</strong> — restricted to Public share only</li>
           </ul>
+
+          <figure class="arch-figure">
+            <img src="@/assets/images/LeastPrivilage/Users.png" alt="User account group membership properties for public, IT, and finance users" class="arch-image" />
+            <figcaption class="arch-caption"><strong>Fig. 10 — User Group Memberships.</strong> Active Directory properties confirming role-based group assignments: public.user is a member of GG-Public-Users only; it.user is a member of GG-IT-Users only; finance.user is a member of GG-Finance-Users only — each scoped to the minimum access required for their role.</figcaption>
+          </figure>
         </section>
 
         <!-- HYBRID IDENTITY -->
@@ -362,11 +425,21 @@ finance.user → GG-Finance-Users → DL-FS-Finance-RW → Modify (NTFS)</code><
             </table>
           </div>
 
+          <figure class="arch-figure">
+            <img src="@/assets/images/LeastPrivilage/just-in-time.png" alt="PIM Just-In-Time activation request and completion status" class="arch-image" />
+            <figcaption class="arch-caption"><strong>Fig. 11 — PIM Just-In-Time Activation.</strong> Left: activation request for the User Administrator role with a 1-hour duration, ConnectWise ticket reference, and operational justification. Right: activation status confirming all three stages completed successfully — the role is now active and will expire automatically after the defined window.</figcaption>
+          </figure>
+
           <h3>Conditional Access — MFA for Privileged Roles</h3>
           <p>
             Conditional Access was configured to require MFA for all privileged administrative accounts,
             ensuring elevated roles are protected by explicit identity verification beyond passwords alone.
           </p>
+
+          <figure class="arch-figure">
+            <img src="@/assets/images/LeastPrivilage/conditional-access-policy.png" alt="Conditional Access policy requiring MFA for privileged roles" class="arch-image" />
+            <figcaption class="arch-caption"><strong>Fig. 12 — Conditional Access Policy — CA-Require-MFA-For-Privileged-Roles.</strong> The policy targets all users assigned privileged roles, requires multi-factor authentication as the grant control, and applies to all cloud resources — ensuring no privileged action can be performed on password alone.</figcaption>
+          </figure>
         </section>
 
         <!-- FINDINGS -->
@@ -577,6 +650,35 @@ export default {
       color: $color-primary-light;
       font-weight: 600;
     }
+  }
+}
+
+.arch-figure {
+  margin: 2.4rem 0;
+  border: 1px solid $border-secondary;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.arch-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.arch-caption {
+  display: block;
+  font-family: $font-secondary;
+  font-size: $text-small;
+  color: $color-primary-dark;
+  line-height: 1.8;
+  padding: 1.4rem 1.6rem;
+  border-top: 1px solid $border-secondary;
+  background-color: $background-skill;
+
+  strong {
+    color: $color-primary-light;
+    font-weight: 600;
   }
 }
 

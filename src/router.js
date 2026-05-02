@@ -7,6 +7,8 @@ import About from './pages/about/About.vue';
 import Contact from './pages/contact/Contact.vue';
 import Security from './pages/security/Security.vue';
 import LeastPrivilege from './pages/security/papers/LeastPrivilege.vue';
+import CaseStudies from './pages/cases/Cases.vue';
+import PfSenseRecovery from './pages/cases/PfSenseRecovery.vue';
 
 import NotFound from './pages/NotFound.vue';
 
@@ -20,6 +22,8 @@ const router = createRouter({
     { path: '/contact', component: Contact},
     { path: '/security', component: Security},
     { path: '/security/papers/least-privilege', component: LeastPrivilege},
+    { path: '/case-studies', component: CaseStudies},
+    { path: '/case-studies/pfsense-recovery', component: PfSenseRecovery},
     { path: '/:notFound(.*)', component: NotFound }
   ]
 });

@@ -31,23 +31,6 @@
         </div>
       </section>
 
-      <section class="papers-section">
-        <h3>// research & papers</h3>
-        <div class="papers-grid">
-          <router-link to="/security/papers/least-privilege" class="paper-card">
-            <div class="paper-card__tag">Cybersecurity &middot; Zero Trust &middot; Identity</div>
-            <h4>Implementation of a Least Privilege Model in a Simulated SME Environment</h4>
-            <p>
-              A hands-on lab project designing and evaluating a hybrid least-privilege access
-              architecture using Active Directory, Microsoft Entra ID, RBAC, and Just-In-Time
-              privilege elevation — demonstrating meaningful Zero Trust-aligned security without
-              full architectural transformation.
-            </p>
-            <span class="paper-card__cta">Read paper ></span>
-          </router-link>
-        </div>
-      </section>
-
       <div class="closing-tag">
         <h2>}</h2>
       </div>

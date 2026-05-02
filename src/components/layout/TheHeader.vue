@@ -132,7 +132,7 @@ export default {
   right: 0;
 }
 .nav {
-  width: 50rem;
+  width: 68rem;
   height: 100%;
 }
 ul {
