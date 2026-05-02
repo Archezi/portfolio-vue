@@ -26,7 +26,7 @@
             <div class="meta-item"><span class="meta-label">OS</span><span class="meta-value">pfSense Plus 23.05.1 (FreeBSD 14.0)</span></div>
             <div class="meta-item"><span class="meta-label">Issue</span><span class="meta-value">ZFS filesystem corruption from unexpected power outage</span></div>
             <div class="meta-item"><span class="meta-label">Outcome</span><span class="meta-value">Full recovery — config retrieved, OS reinstalled, config restored</span></div>
-            <div class="meta-item"><span class="meta-label">Recovery Time</span><span class="meta-value">~4–5 hours (fully remote)</span></div>
+            <div class="meta-item"><span class="meta-label">Recovery Time</span><span class="meta-value">~4–5 hours</span></div>
           </div>
           <p>
             A production Netgate 8200 firewall running pfSense Plus became completely unbootable
@@ -77,7 +77,7 @@ with existing one (offset=18eac58000 size=3000)</code></pre>
           </ul>
           <h3>Remote Access Setup</h3>
           <p>
-            The entire recovery was performed fully remotely via serial console:
+            Serial console access was used throughout the recovery via:
           </p>
           <div class="table-wrapper">
             <table>
@@ -254,7 +254,7 @@ grep "&lt;lastchange&gt;" /tmp/cf/conf/config.xml    # verify not empty</code></
           </ul>
           <div class="callout">
             <span class="callout-label">Outcome</span>
-            <p>Full functionality restored. Total recovery time approximately 4–5 hours, performed entirely remotely.</p>
+            <p>Full functionality restored. Total recovery time approximately 4–5 hours.</p>
           </div>
 
           <h3>Recovery Summary</h3>
