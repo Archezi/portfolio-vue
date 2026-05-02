@@ -223,6 +223,11 @@ grep "&lt;lastchange&gt;" /tmp/cf/conf/config.xml    # verify not empty</code></
             <p>Connected an Android phone to the Netgate 8200 WAN port via USB-C to RJ45 adapter with USB/mobile hotspot tethering enabled. Android's DHCP uses a subnet that does not conflict with pfSense's default LAN (<code>192.168.1.0/24</code>), allowing WAN to route outbound traffic cleanly.</p>
           </div>
 
+          <div class="callout callout--warn">
+            <span class="callout-label">Hardware Compatibility — Netgate 8200 NVMe</span>
+            <p>The Netgate 8200 is only compatible with <strong>M.2 B+M-key or B-key PCIe NVMe SSDs</strong>. M-key only drives will not be recognised. Verify the key type before purchasing a replacement drive — incorrect key type is a common and costly mistake during hardware-assisted recovery.</p>
+          </div>
+
           <h3>Installation Steps</h3>
           <div class="code-block">
             <span class="code-label">Installer</span>
@@ -296,6 +301,33 @@ grep "&lt;lastchange&gt;" /tmp/cf/conf/config.xml    # verify not empty</code></
           </ul>
         </section>
 
+        <section id="resources">
+          <h2>10. References & Resources</h2>
+          <p>Official documentation and tools referenced during this recovery.</p>
+          <ul class="resources-list">
+            <li>
+              <a href="https://shop.netgate.com/products/netgate-installer?variant=41345658388595" target="_blank" rel="noopener">Netgate Installer Download</a>
+              <span>Official pfSense Plus installer download portal. Requires a valid Netgate account with the device serial number claimed. Download the AMD64 ISO matching your installed version.</span>
+            </li>
+            <li>
+              <a href="https://docs.netgate.com/pfsense/en/latest/install/netinstaller.html" target="_blank" rel="noopener">Netgate Installer Documentation</a>
+              <span>Official guide to preparing and booting the pfSense Plus installer USB, including EFI boot menu navigation and installation options.</span>
+            </li>
+            <li>
+              <a href="https://docs.netgate.com/pfsense/en/latest/install/install-walkthrough.html#install-config-recovery" target="_blank" rel="noopener">Install Config Recovery — pfSense Docs</a>
+              <span>Documentation covering config recovery options available during the installation process, including accessing the recovery shell to retrieve existing configuration files.</span>
+            </li>
+            <li>
+              <a href="https://docs.netgate.com/pfsense/en/latest/install/install-walkthrough.html#configuration-restore" target="_blank" rel="noopener">Configuration Restore — pfSense Docs</a>
+              <span>Step-by-step guide for restoring a saved <code>config.xml</code> backup via Diagnostics → Backup & Restore after a clean OS installation.</span>
+            </li>
+            <li>
+              <a href="https://www.balena.io/etcher/" target="_blank" rel="noopener">Balena Etcher</a>
+              <span>Cross-platform USB flashing tool used to write the pfSense Plus ISO to a USB drive. Reliable alternative to Rufus on non-Windows systems.</span>
+            </li>
+          </ul>
+        </section>
+
       </article>
 
       <div class="paper-footer">
@@ -322,7 +354,8 @@ export default {
         { id: 'config-recovery',   number: '06', label: 'Config Recovery' },
         { id: 'reinstallation',    number: '07', label: 'OS Reinstallation' },
         { id: 'restore',           number: '08', label: 'Restore & Verification' },
-        { id: 'lessons',           number: '09', label: 'Key Lessons' }
+        { id: 'lessons',           number: '09', label: 'Key Lessons' },
+        { id: 'resources',         number: '10', label: 'References & Resources' }
       ]
     };
   },
@@ -567,6 +600,57 @@ export default {
     border-left-color: $border-primary;
     .callout-label { color: $color-primary-dark; }
     p { color: $color-primary-dark !important; }
+  }
+
+  &--warn {
+    background-color: rgba(230, 160, 40, 0.08);
+    border-left-color: #e6a028;
+    .callout-label { color: #e6a028; }
+    p { color: $color-primary-light !important; }
+  }
+}
+
+.resources-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 1.6rem 0;
+
+  li {
+    display: block;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid $border-secondary;
+
+    &:last-child { border-bottom: none; }
+
+    a {
+      display: inline-block;
+      font-family: $font-secondary;
+      font-size: $text-primary;
+      color: #7c4ff5;
+      text-decoration: none;
+      margin-bottom: 0.4rem;
+      transition: color 0.2s ease;
+
+      &:hover { color: $color-primary-light; }
+    }
+
+    span {
+      display: block;
+      font-family: $font-secondary;
+      font-size: $text-small;
+      color: $color-primary-dark;
+      line-height: 1.7;
+
+      code {
+        font-size: $text-extra-small;
+        color: #7c4ff5;
+        background-color: $background-skill;
+        padding: 0.1rem 0.4rem;
+        border-radius: 2px;
+      }
+    }
   }
 }
 
