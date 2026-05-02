@@ -7,7 +7,7 @@
     <!-- MAIN CONTENT -->
     <div class="paper-container">
       <div class="paper-header">
-        <router-link to="/security" class="back-link">&#8592; back to security</router-link>
+        <router-link to="/case-studies" class="back-link">&#8592; back to case studies</router-link>
         <div class="paper-meta">
           <span class="paper-tag">Cybersecurity</span>
           <span class="paper-tag">Zero Trust</span>
@@ -497,7 +497,7 @@ finance.user → GG-Finance-Users → DL-FS-Finance-RW → Modify (NTFS)</code><
       </article>
 
       <div class="paper-footer">
-        <router-link to="/security" class="back-link">&#8592; back to security</router-link>
+        <router-link to="/case-studies" class="back-link">&#8592; back to case studies</router-link>
       </div>
     </div>
 

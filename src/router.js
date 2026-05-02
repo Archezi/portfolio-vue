@@ -8,6 +8,7 @@ import Contact from './pages/contact/Contact.vue';
 import LeastPrivilege from './pages/security/papers/LeastPrivilege.vue';
 import CaseStudies from './pages/cases/Cases.vue';
 import PfSenseRecovery from './pages/cases/PfSenseRecovery.vue';
+import SqlServerFci from './pages/cases/SqlServerFci.vue';
 
 import NotFound from './pages/NotFound.vue';
 
@@ -22,6 +23,7 @@ const router = createRouter({
     { path: '/security/papers/least-privilege', component: LeastPrivilege},
     { path: '/case-studies', component: CaseStudies},
     { path: '/case-studies/pfsense-recovery', component: PfSenseRecovery},
+    { path: '/case-studies/papers/sql-server-fci', component: SqlServerFci},
     { path: '/:notFound(.*)', component: NotFound }
   ]
 });

@@ -12,6 +12,16 @@
       <section class="studies-section">
         <h3>// research & papers</h3>
         <div class="case-studies-grid">
+          <router-link to="/case-studies/papers/sql-server-fci" class="case-card">
+            <div class="case-card__tag">SQL Server 2022 &middot; High Availability &middot; Hyper-V</div>
+            <h4>SQL Server 2022 Failover Cluster Instance &mdash; Dual-Layer HA Homelab</h4>
+            <p>
+              A full homelab implementation of SQL Server 2022 FCI on Windows Server 2022 Hyper-V.
+              Dual-layer high availability using WSFC and iSCSI shared storage &mdash; zero RPO,
+              ~30s RTO &mdash; validated through planned failover, forced node crash, and live migration.
+            </p>
+            <span class="case-card__cta">Read case study ></span>
+          </router-link>
           <router-link to="/security/papers/least-privilege" class="case-card">
             <div class="case-card__tag">Cybersecurity &middot; Zero Trust &middot; Identity</div>
             <h4>Implementation of a Least Privilege Model in a Simulated SME Environment</h4>

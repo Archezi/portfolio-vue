@@ -235,6 +235,7 @@ ul li img {
   }
 }
 
+
 .about-description {
   font-size: $text-extra;
   font-family: $font-secondary;
