@@ -475,7 +475,7 @@ export default {
     code {
       font-family: $font-secondary;
       font-size: $text-extra-small;
-      color: #7c4ff5;
+      color: #c4b5fd;
       background-color: $background-skill;
       padding: 0.2rem 0.5rem;
       border-radius: 2px;

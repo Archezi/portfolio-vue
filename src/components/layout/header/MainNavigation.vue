@@ -8,9 +8,6 @@
         <router-link to="/work">./work</router-link>
       </li>
       <li>
-        <router-link to="/security">./security</router-link>
-      </li>
-      <li>
         <router-link to="/case-studies">./case-studies</router-link>
       </li>
       <li>
