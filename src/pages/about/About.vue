@@ -17,7 +17,7 @@
           </li>
           <li class="resume-list-item">
             Download my
-            <a href="/cv.pdf" target="_blank">
+            <a href="https://drive.google.com/file/d/1CJJ0Ai4SvIehGjooi9HeIzcC7nRT1knx/preview" target="_blank">
               <button class="resume-button">
                 Resume
                 <svg xmlns="http://www.w3.org/2000/svg" width="30.849" height="28.921" viewBox="0 0 30.849 28.921">
@@ -37,7 +37,7 @@
         Level 2 IT Field Engineer with 4+ years of experience supporting Microsoft 365 environments,
         hybrid Active Directory / Entra ID infrastructure, and enterprise endpoint management.
         Alongside engineering work, I build production web applications using Vue.js and modern
-        JavaScript frameworks. Currently pursuing a BSc (Hons) in LAN Cybersecurity at
+        JavaScript frameworks. Currently completing a BSc (Hons) in LAN Cybersecurity at
         Atlantic Technological University Mayo.
       </p>
 
@@ -51,6 +51,26 @@
               {{ skill }}<span v-if="index < group.skills.length - 1" class="dot"> ·</span>
             </li>
           </ul>
+        </div>
+      </section>
+
+      <section class="education-section">
+        <h3>// education</h3>
+        <div class="certs-list">
+          <div class="cert-item">
+            <span class="cert-bullet">▸</span>
+            <div>
+              <span class="cert-text">BSc (Hons) in LAN Cybersecurity</span>
+              <span class="cert-institution">Atlantic Technological University Mayo</span>
+            </div>
+          </div>
+          <div class="cert-item">
+            <span class="cert-bullet">▸</span>
+            <div>
+              <span class="cert-text">Higher Diploma in Web Design &amp; Development</span>
+              <span class="cert-institution">Dublin Institute of Design</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -320,6 +340,15 @@ ul li img {
     font-size: $text-primary;
     color: $color-primary-dark;
     line-height: 1.6;
+  }
+
+  .cert-institution {
+    display: block;
+    font-family: $font-secondary;
+    font-size: $text-small;
+    color: #7c4ff5;
+    line-height: 1.4;
+    margin-top: 0.2rem;
   }
 }
 
