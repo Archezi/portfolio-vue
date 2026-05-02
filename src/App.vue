@@ -8,34 +8,14 @@
         </transition>
       </router-view>
     </div>
-    <mobile-bottom-nav
-      v-if="mobileView"
-      key="mobileBottomNav"
-    ></mobile-bottom-nav>
   </div>
 </template>
 
 <script>
-import MobileBottomNav from './components/layout/header/MobileBottomNav.vue';
 import TheHeader from './components/layout/TheHeader.vue';
 export default {
   components: {
-    TheHeader,
-    MobileBottomNav
-  },
-  data() {
-    return {
-      mobileView: false
-    };
-  },
-  methods: {
-    handleView() {
-      this.mobileView = window.innerWidth <= 700;
-    }
-  },
-  created() {
-    this.handleView();
-    window.addEventListener('resize', this.handleView);
+    TheHeader
   }
 };
 </script>
