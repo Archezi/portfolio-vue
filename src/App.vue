@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper">
     <the-header></the-header>
+    <cookie-banner></cookie-banner>
     <div class="container">
       <router-view v-slot="slotProps">
         <transition name="route" mode="out-in">
@@ -13,9 +14,11 @@
 
 <script>
 import TheHeader from './components/layout/TheHeader.vue';
+import CookieBanner from './components/ui/CookieBanner.vue';
 export default {
   components: {
-    TheHeader
+    TheHeader,
+    CookieBanner
   }
 };
 </script>
